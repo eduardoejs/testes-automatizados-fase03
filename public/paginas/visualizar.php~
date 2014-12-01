@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Design Patterns - Fase 01</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+
+<div class="container-fluid">
+    <h1>Formulário Básico</h1>
+<?php
+use \EJS\Classes\Elemento;
+
+$form = new Elemento('form');
+$form->set_Propriedades('method', 'post');
+$form->set_Propriedades('action', '');
+$form->set_Propriedades('role', 'form');
+
+$label = new Elemento('label', "Email");
+$label->set_Propriedades('for', 'inputEmail');
+$label->set_Propriedades('class', 'col-sm2 control-label');
+$label->set_Propriedades('placeholder', 'Email');
+
+$input = new Elemento('input');
+$input->set_Propriedades('type', 'email');
+$input->set_Propriedades('name', 'email');
+$input->set_Propriedades('placeholder', 'Email aqui');
+$input->set_Propriedades('class','form-control');
+$input->set_Propriedades('id','inputEmail');
+
+$senha = new Elemento('label', "Senha");
+$senha->set_Propriedades('for', 'inputSenha');
+$senha->set_Propriedades('class', 'col-sm2 control-label');
+$senha->set_Propriedades('placeholder', 'Senha');
+
+$inputSenha = new Elemento('input');
+$inputSenha->set_Propriedades('type', 'password');
+$inputSenha->set_Propriedades('placeholder', 'Senha aqui');
+$inputSenha->set_Propriedades('class','form-control');
+$inputSenha->set_Propriedades('id','inputSenha');
+
+$button = new Elemento('input');
+$button->set_Propriedades('type', 'submit');
+$button->set_Propriedades('value', 'Enviar');
+$button->set_Propriedades('name', 'Enviar');
+
+$form->addElementoFilho($label);
+$form->addElementoFilho($input);
+$form->addElementoFilho($senha);
+$form->addElementoFilho($inputSenha);
+$form->addElementoFilho($button);
+
+$form->render();
+
+if(isset($_POST['Enviar']))
+	echo '<pre>';
+	var_dump($_POST['']);
+	echo '</pre>';
+
+?>
+</div>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
